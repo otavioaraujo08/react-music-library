@@ -11,10 +11,16 @@ interface TokenResponse {
 class SpotifyService {
     constructor(private readonly api: ApiService) {}
 
-    public PostToken = async (
-        client_id: string,
-        client_secret: string
-    ): Promise<TokenResponse> => {
+    public PostToken = async (): Promise<TokenResponse> => {
+        const client_id = process.env.CLIENT_ID;
+        const client_secret = process.env.CLIENT_SECRET;
+
+        if (!client_id || !client_secret) {
+            throw new Error(
+                'As credenciais do cliente não estão configuradas corretamente.'
+            );
+        }
+
         return this.api.post(
             'https://accounts.spotify.com/api/token',
             new URLSearchParams({
