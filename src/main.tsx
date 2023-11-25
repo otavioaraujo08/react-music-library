@@ -1,9 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import { router } from './routes/route';
+import { RouterProvider } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <h1>Olá Mundo</h1>
-  </React.StrictMode>,
-)
+    <React.StrictMode>
+        <RouterProvider router={router} />
+    </React.StrictMode>
+);
