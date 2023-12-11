@@ -1,5 +1,6 @@
-import { spotifyService } from '../../services/spotifyService';
 import { useEffect } from 'react';
+import { HomeHeader } from '@pages/home/header';
+import { spotifyService } from '@services/spotifyService';
 
 export const Home = () => {
     const getToken = async () => {
@@ -20,36 +21,9 @@ export const Home = () => {
         }
     };
 
-    const getArtistInfos = async () => {
-        try {
-            const response = await spotifyService.GetArtist();
-
-            console.log(response);
-        } catch (err) {
-            console.log(err);
-        }
-    };
-
     useEffect(() => {
         getToken();
     }, []);
 
-    return (
-        <div>
-            <h1>Minha Biblioteca Musical</h1>
-
-            <button
-                onClick={getArtistInfos}
-                style={{
-                    fontSize: '1.4rem',
-                    width: '20rem',
-                    height: '3rem',
-                    background: '#e3cdcd',
-                    color: '#000000',
-                }}
-            >
-                Buscar informações do artista
-            </button>
-        </div>
-    );
+    return <HomeHeader />;
 };
