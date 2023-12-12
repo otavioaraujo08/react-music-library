@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { HomeHeader } from '@pages/home/header';
+import { HomeBanner } from '@pages/home/banner';
 import { spotifyService } from '@services/spotifyService';
+import { HomeDiv } from './styles';
 
 export const Home = () => {
     const getToken = async () => {
@@ -25,5 +27,11 @@ export const Home = () => {
         getToken();
     }, []);
 
-    return <HomeHeader />;
+    return (
+        <HomeDiv>
+            <HomeHeader />
+
+            <HomeBanner />
+        </HomeDiv>
+    );
 };
