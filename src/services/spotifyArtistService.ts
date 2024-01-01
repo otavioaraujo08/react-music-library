@@ -11,11 +11,12 @@ class SpotifyArtistService {
         });
     };
 
-    public GetArtistAlbums = async (id: string) => {
+    public GetArtistAlbums = async (id: string, params?: any) => {
         return this.api.get(`${defaultUrl}/artists/${id}/albums`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('BearerToken')}`,
             },
+            params,
         });
     };
 }
