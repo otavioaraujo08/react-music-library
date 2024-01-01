@@ -10,8 +10,8 @@ class SpotifyService {
     constructor(private readonly api: ApiService) {}
 
     public PostToken = async (): Promise<TokenResponse> => {
-        const client_id = process.env.CLIENT_ID;
-        const client_secret = process.env.CLIENT_SECRET;
+        const client_id = import.meta.env.VITE_CLIENT_ID;
+        const client_secret = import.meta.env.VITE_CLIENT_SECRET;
 
         if (!client_id || !client_secret) {
             throw new Error(
@@ -36,7 +36,7 @@ class SpotifyService {
     };
 
     public GetRefreshToken = async () => {
-        const client_id = process.env.CLIENT_ID;
+        const client_id = import.meta.env.VITE_CLIENT_ID;
         const refreshToken = localStorage.getItem('BearerToken');
 
         if (!client_id || !refreshToken) {
