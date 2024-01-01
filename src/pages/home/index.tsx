@@ -3,6 +3,7 @@ import { HomeHeader } from '@pages/home/header';
 import { HomeBanner } from '@pages/home/banner';
 import { spotifyService } from '@services/spotifyService';
 import { HomeDiv } from './styles';
+import { ArtistExample } from './artistExample';
 
 export const Home = () => {
     const getToken = async () => {
@@ -15,8 +16,6 @@ export const Home = () => {
                 const response = await spotifyService.PostToken();
 
                 localStorage.setItem('BearerToken', response.access_token);
-
-                console.log(response);
             } catch (err) {
                 console.log(err);
             }
@@ -32,6 +31,8 @@ export const Home = () => {
             <HomeHeader />
 
             <HomeBanner />
+
+            <ArtistExample />
         </HomeDiv>
     );
 };
