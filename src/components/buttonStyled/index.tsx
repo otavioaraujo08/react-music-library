@@ -19,10 +19,19 @@ const ButtonWithStyle = styled(Button)`
 
 interface ButtonProps {
     title: string;
+    onClick: () => void;
+    variantStyle?: 'text' | 'contained' | 'outlined';
 }
 
-const ButtonStyled = ({ title }: ButtonProps) => {
-    return <ButtonWithStyle variant="contained">{title}</ButtonWithStyle>;
+const ButtonStyled = ({ title, onClick, variantStyle }: ButtonProps) => {
+    return (
+        <ButtonWithStyle
+            onClick={onClick}
+            variant={variantStyle || 'contained'}
+        >
+            {title}
+        </ButtonWithStyle>
+    );
 };
 
 export default ButtonStyled;
