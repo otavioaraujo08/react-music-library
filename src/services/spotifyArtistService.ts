@@ -1,3 +1,4 @@
+import { ArtistAlbumsResponse } from 'types/spotifyArtist';
 import { api as apiService, ApiService, defaultUrl } from './api';
 
 class SpotifyArtistService {
@@ -11,7 +12,10 @@ class SpotifyArtistService {
         });
     };
 
-    public GetArtistAlbums = async (id: string, params?: any) => {
+    public GetArtistAlbums = async (
+        id: string,
+        params?: any
+    ): Promise<ArtistAlbumsResponse> => {
         return this.api.get(`${defaultUrl}/artists/${id}/albums`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('BearerToken')}`,
