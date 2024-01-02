@@ -12,3 +12,6 @@ export interface ArtistAlbumImageResponse {
     width: number;
     url: string;
 }
+export interface externalLinksResponse {
+    spotify: string;
+}
