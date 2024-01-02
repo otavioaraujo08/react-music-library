@@ -1,4 +1,3 @@
-import { refreshToken } from '@utils/refreshToken';
 import axios, { AxiosRequestConfig } from 'axios';
 
 export class ApiService {
@@ -16,13 +15,6 @@ export class ApiService {
             .catch((err) => {
                 if (err?.message === 'Network Error') {
                     throw new Error('Network Error');
-                }
-
-                if (
-                    err?.response.data.error.message ===
-                    'The access token expired'
-                ) {
-                    refreshToken();
                 }
 
                 if (axios.isAxiosError(err)) throw err.response?.data;
