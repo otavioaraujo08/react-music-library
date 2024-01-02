@@ -6,3 +6,9 @@ export interface ArtistResponse {
     type: string;
     uri: string;
 }
+
+export interface ArtistAlbumImageResponse {
+    height: number;
+    width: number;
+    url: string;
+}
