@@ -12,6 +12,7 @@ export interface ArtistAlbumImageResponse {
     width: number;
     url: string;
 }
+
 export interface externalLinksResponse {
     spotify: string;
 }
@@ -31,4 +32,14 @@ export interface ArtistAlbumResponse {
     total_tracks: number;
     type: string;
     uri: string;
+}
+
+export interface ArtistAlbumsResponse {
+    href: string;
+    items: ArtistAlbumResponse[];
+    limit: number;
+    next: string;
+    offset: number;
+    previous: string | null;
+    total: number;
 }
