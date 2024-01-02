@@ -15,3 +15,20 @@ export interface ArtistAlbumImageResponse {
 export interface externalLinksResponse {
     spotify: string;
 }
+
+export interface ArtistAlbumResponse {
+    album_group: string;
+    album_type: string;
+    artist: ArtistResponse[];
+    available_markets: string[];
+    external_urls: externalLinksResponse;
+    href: string;
+    id: string;
+    images: ArtistAlbumImageResponse[];
+    name: string;
+    release_date: string;
+    release_date_precision: string;
+    total_tracks: number;
+    type: string;
+    uri: string;
+}
