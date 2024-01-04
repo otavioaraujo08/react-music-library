@@ -13,6 +13,8 @@ import {
 import { useEffect, useState } from 'react';
 import { ArtistAlbumResponse } from 'types/spotifyArtist';
 import ButtonStyled from '@components/buttonStyled';
+import { getToken } from '@utils/getToken';
+import { refreshToken } from '@utils/refreshToken';
 
 export const ArtistExample = () => {
     const [albumsList, setAlbumsList] = useState<ArtistAlbumResponse[]>();
@@ -33,6 +35,10 @@ export const ArtistExample = () => {
             }
         } catch (err: any) {
             console.log(err);
+            if (err?.error.message === 'The access token expired') {
+                refreshToken();
+                return getToken();
+            }
         }
     };
 
