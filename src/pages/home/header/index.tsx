@@ -12,8 +12,8 @@ export const HomeHeader = () => {
             <div>
                 <li>
                     <ul>Início</ul>
-                    <ul>É Sério ?</ul>
-                    <ul>Como ?</ul>
+                    <ul>Recomendado</ul>
+                    <ul>Categorias</ul>
                 </li>
             </div>
         </Header>
